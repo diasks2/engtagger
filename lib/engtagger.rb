@@ -219,20 +219,20 @@ class EngTagger
     return tagged.join(' ')
   end
   
-  def add_tags_hash(text, verbose = false)
-    return nil unless valid_text(text)
-    tagged = Hash.new
-    words = clean_text(text) 
-    words.each do |word|
-      cleaned_word = clean_word(word)
-      tag = assign_tag(@conf[:current_tag], cleaned_word)
-      @conf[:current_tag] = tag = (tag and tag != "") ? tag : 'nn'
-      tag = EngTagger.explain_tag(tag) if verbose
-      tagged[word] = tag
-    end
-    reset
-    return tagged
-  end
+  #def add_tags_hash(text, verbose = false)
+   # return nil unless valid_text(text)
+  #  tagged = Hash.new
+   # words = clean_text(text) 
+  #  words.each do |word|
+   #   cleaned_word = clean_word(word)
+  #    tag = assign_tag(@conf[:current_tag], cleaned_word)
+   #   @conf[:current_tag] = tag = (tag and tag != "") ? tag : 'nn'
+  #    tag = EngTagger.explain_tag(tag) if verbose
+   #   tagged[word] = tag
+#    end
+ #   reset
+  #  return tagged
+#  end
   # Given a text string, return as many nouns and noun phrases as possible.  
   # Applies add_tags and involves three stages:
   # 
